@@ -108,7 +108,18 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
                 imageUrl: string;
                 priceInCents: number;
               }) => (
-                <ServiceItem key={service.id} service={service} />
+                <ServiceItem
+                  key={service.id}
+                  service={service}
+                  barbershop={{
+                    id: barbershop.id,
+                    name: barbershop.name,
+                    address: barbershop.address,
+                    description: barbershop.description,
+                    imageUrl: barbershop.imageUrl,
+                    phones: barbershop.phones,
+                  }}
+                />
               ),
             )}
           </div>

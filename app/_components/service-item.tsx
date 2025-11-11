@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import BookingSheet from "./booking-sheet";
 
 interface ServiceItemProps {
   service: {
@@ -9,47 +13,66 @@ interface ServiceItemProps {
     imageUrl: string;
     priceInCents: number;
   };
+  barbershop: {
+    id: string;
+    name: string;
+    address: string;
+    description: string;
+    imageUrl: string;
+    phones: string[];
+  };
 }
 
-const ServiceItem = ({ service }: ServiceItemProps) => {
+const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
+  const [isBookingSheetOpen, setIsBookingSheetOpen] = useState(false);
+
   const formatPrice = (priceInCents: number) => {
     return (priceInCents / 100).toFixed(2).replace(".", ",");
   };
 
   return (
-    <div className="bg-card border-border flex gap-3 rounded-2xl border p-3">
-      <div className="relative h-[110px] w-[110px] shrink-0 overflow-hidden rounded-[10px]">
-        <Image
-          src={service.imageUrl}
-          alt={service.name}
-          fill
-          className="object-cover"
-          sizes="110px"
-        />
-      </div>
-      <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between">
-        <div className="flex flex-col gap-[4px]">
-          <h3 className="text-card-foreground text-sm leading-[1.4] font-bold">
-            {service.name}
-          </h3>
-          <p className="text-muted-foreground text-sm leading-[1.4]">
-            {service.description}
-          </p>
+    <>
+      <div className="bg-card border-border flex gap-3 rounded-2xl border p-3">
+        <div className="relative h-[110px] w-[110px] shrink-0 overflow-hidden rounded-[10px]">
+          <Image
+            src={service.imageUrl}
+            alt={service.name}
+            fill
+            className="object-cover"
+            sizes="110px"
+          />
         </div>
-        <div className="flex w-full items-center justify-between">
-          <p className="text-card-foreground text-sm leading-[1.4] font-bold">
-            R$ {formatPrice(service.priceInCents)}
-          </p>
-          <Button
-            variant="default"
-            size="sm"
-            className="shrink-0 rounded-full px-4 py-2 text-sm leading-[1.4]"
-          >
-            Reservar
-          </Button>
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between">
+          <div className="flex flex-col gap-[4px]">
+            <h3 className="text-card-foreground text-sm leading-[1.4] font-bold">
+              {service.name}
+            </h3>
+            <p className="text-muted-foreground text-sm leading-[1.4]">
+              {service.description}
+            </p>
+          </div>
+          <div className="flex w-full items-center justify-between">
+            <p className="text-card-foreground text-sm leading-[1.4] font-bold">
+              R$ {formatPrice(service.priceInCents)}
+            </p>
+            <Button
+              variant="default"
+              size="sm"
+              className="shrink-0 rounded-full px-4 py-2 text-sm leading-[1.4]"
+              onClick={() => setIsBookingSheetOpen(true)}
+            >
+              Reservar
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+      <BookingSheet
+        open={isBookingSheetOpen}
+        onOpenChange={setIsBookingSheetOpen}
+        service={service}
+        barbershop={barbershop}
+      />
+    </>
   );
 };
 
