@@ -133,6 +133,8 @@ A IA interpreta preferências, ajusta datas e, se quiser, finaliza o pagamento v
 O **Aparatus** nasceu da vontade de trazer praticidade pro dia a dia das barbearias.
 Menos papelada, menos desencontro — mais tempo pro que realmente importa: **cuidar do cliente**. 💈
 
+> Desenvolvido durante a Full Stack Weekend, evento do Felipe Rocha (Full Stack Club), com foco em criar projetos reais e escaláveis do zero ao deploy.
+
 ---
 
 ## 📜 Licença
