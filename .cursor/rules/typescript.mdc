@@ -3,6 +3,13 @@ globs: *.ts,*.tsx
 alwaysApply: false
 ---
 
+---
+
+globs: _.ts,_.tsx
+alwaysApply: false
+
+---
+
 - Escreva um código limpo, conciso e fácil de manter, seguindo princípios do SOLID e Clean Code.
 - Use nomes de variáveis descritivos (exemplos: isLoading, hasError).
 - Use kebab-case para nomes de pastas e arquivos.
