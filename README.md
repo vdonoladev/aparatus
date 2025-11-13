@@ -30,7 +30,6 @@ O pagamento é feito diretamente pelo **serviço contratado**, com **Stripe** ga
 - 💳 **Pagamentos instantâneos com Stripe** (por serviço contratado)  
 - 🧔 **Gestão de barbearias**, barbeiros e agendamentos  
 - 🔐 **Autenticação com Better Auth** e login via Google  
-- ⚙️ **Dashboard administrativo** completo  
 - 🌐 **Infraestrutura com Prisma + NeonDB**  
 - 🎨 **Interface moderna** com ShadCN + Tailwind CSS  
 
